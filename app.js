@@ -10,18 +10,25 @@ function addItems(state, item){
 // $(".shopping-item").append(state.items);
 // }
 
-var buildList = function (state,element) {
+var buildList = function (state) {
+  var $template = $(".template");
   var itemsHTML = state.items.map(function(item) {
-    return item;
+    var newItem = $template.clone();
+    newItem.find(".shopping-item").text(item);
+    newItem.removeClass("template");
+    $('.shopping-list').append(newItem);
+    console.log(item);
+    console.log("state", state);
+
   });
-  element.html(itemsHTML);
+
 };
 
 function formSubmit() {
 $('#js-shopping-list-form').submit(function(event) {
   event.preventDefault();
   addItems(state, $('#shopping-list-entry').val());
-  buildList(state, $('.shopping-item'));
+  buildList(state);
   // renderHTML(state);
 
 });
