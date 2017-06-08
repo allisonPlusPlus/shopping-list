@@ -12,3 +12,7 @@ var renderList = function (state,element) {
   });
   elements.html(itemsHTML);
 };
+
+$('.js-shopping-list-form').submit(function(event) {
+  event.preventDefault();
+}
