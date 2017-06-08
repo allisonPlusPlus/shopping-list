@@ -6,8 +6,10 @@ function addItems(state, item){
   state.items.push(item);
 }
 
-function checkItem (state) {
-  console.log(state);
+function checkItem () {
+  $(".shopping-item-toggle").click(function() {
+    $(".shopping-item").addClass('shopping-item__checked');
+  });
 }
 
 var buildList = function (state) {
@@ -19,7 +21,8 @@ var buildList = function (state) {
     $('.shopping-list').append(newItem);
   });
 
-checkItem(state);
+checkItem();
+
 };
 
 function formSubmit() {
