@@ -6,6 +6,9 @@ function addItems(state, item){
   state.items.push(item);
 }
 
+function checkItem (state) {
+  console.log(state);
+}
 
 var buildList = function (state) {
   var $template = $(".template");
@@ -16,6 +19,7 @@ var buildList = function (state) {
     $('.shopping-list').append(newItem);
   });
 
+checkItem(state);
 };
 
 function formSubmit() {
