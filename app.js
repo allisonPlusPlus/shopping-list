@@ -17,7 +17,7 @@ function formSubmit() {
 $('.js-shopping-list-form').submit(function(event) {
   event.preventDefault();
   addItem(state, $('#shopping-list-entry').val());
-  renderList(state, $('.shopping-list-entry'));
+  renderList(state, $('.shopping-item'));
 });
 }
 
