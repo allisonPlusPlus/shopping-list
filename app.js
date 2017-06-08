@@ -6,9 +6,6 @@ function addItems(state, item){
   state.items.push(item);
 }
 
-// function renderHTML(state) {
-// $(".shopping-item").append(state.items);
-// }
 
 var buildList = function (state) {
   var $template = $(".template");
@@ -17,9 +14,6 @@ var buildList = function (state) {
     newItem.find(".shopping-item").text(item);
     newItem.removeClass("template");
     $('.shopping-list').append(newItem);
-    console.log(item);
-    console.log("state", state);
-
   });
 
 };
