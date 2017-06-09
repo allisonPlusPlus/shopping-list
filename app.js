@@ -14,14 +14,17 @@ function checkItem () {
   });
 }
 
-function removeItem(state, itemIndex) {
-   var itemIndex = parseInt($(this).closest('li').attr(itemDataAttr));
-  $(".shopping-item-delete").click(deleteItem(state, itemIndex));
-}
 
-function deleteItem(state, itemIndex) {
+  $(".shopping-list").on("click", ".shopping-item-delete", function (event, state) {
+     var itemIndex = parseInt($(this).closest('li').attr(itemDataAttr));
+     deleteItem(state, itemIndex);
+     buildList(state);
+  });
+
+function deleteItem(state) {
   var itemIndex = parseInt($(this).closest('li').attr(itemDataAttr));
   state.items.splice(itemIndex, 1);
+  buildList(state);
 }
 
 
