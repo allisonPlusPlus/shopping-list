@@ -36,8 +36,6 @@ var buildList = function (state) {
   });
     var itemDataAttr = 'data-list-item-id';
  var itemIndex = parseInt($(this).closest('li').attr(itemDataAttr));
-checkItem();
-
 };
 
 function formSubmit() {
