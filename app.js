@@ -3,8 +3,6 @@ var state = {
 };
 
 var itemDataAttr = 'data-list-item-id';
- var itemIndex = parseInt($(this).closest('li').attr(itemDataAttr));
-
 
 function addItems(state, item){
   state.items.push(item);
@@ -16,11 +14,13 @@ function checkItem () {
   });
 }
 
-function removeItem(state) {
+function removeItem(state, itemIndex) {
+   var itemIndex = parseInt($(this).closest('li').attr(itemDataAttr));
   $(".shopping-item-delete").click(deleteItem(state, itemIndex));
 }
 
 function deleteItem(state, itemIndex) {
+  var itemIndex = parseInt($(this).closest('li').attr(itemDataAttr));
   state.items.splice(itemIndex, 1);
 }
 
@@ -35,7 +35,6 @@ var buildList = function (state) {
     $('.shopping-list').append(newItem);
   });
     var itemDataAttr = 'data-list-item-id';
- var itemIndex = parseInt($(this).closest('li').attr(itemDataAttr));
 };
 
 function formSubmit() {
