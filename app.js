@@ -15,14 +15,14 @@ function checkItem () {
 }
 
 
-  $(".shopping-list").on("click", ".shopping-item-delete", function (event, state) {
+  $(".shopping-list").on("click", ".shopping-item-delete", function (event) {
      var itemIndex = parseInt($(this).closest('li').attr(itemDataAttr));
-     deleteItem(state, itemIndex);
+     deleteItem(event);
      buildList(state);
   });
 
-function deleteItem(state) {
-  var itemIndex = parseInt($(this).closest('li').attr(itemDataAttr));
+function deleteItem(event) {
+  var itemIndex = parseInt($(event.target).closest('li').index() - 1);
   state.items.splice(itemIndex, 1);
   buildList(state);
 }
@@ -31,6 +31,8 @@ function deleteItem(state) {
 
 var buildList = function (state) {
   var $template = $(".template");
+  //-- Clearing out the template first
+  $('.shopping-list li:not(".template")').remove();
   var itemsHTML = state.items.map(function(item) {
     var newItem = $template.clone();
     newItem.find(".shopping-item").text(item);
