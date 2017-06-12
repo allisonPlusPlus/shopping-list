@@ -8,10 +8,14 @@ function addItems(state, item){
   state.items.push(item);
 }
 
-function checkItem () {
-  $(".shopping-item-toggle").click(function() {
-    $(".shopping-item").addClass('shopping-item__checked');
+
+  $(".shopping-list").on("click", ".shopping-item-toggle", function(event) {
+     var itemIndex = parseInt($(this).closest('li').attr(itemDataAttr));
+    checkItem(event);
   });
+
+function checkItem(event) {
+$(".shopping-item").addClass("shopping-item__checked");
 }
 
 
